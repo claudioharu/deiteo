@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+ 
+<div id="viz"></div>
+ 
+<script>
+ 
+  var sample_data = [
+    {"value": 100, "name": "alpha", "growth": .9, "group" : "a"},
+    {"value": 70, "name": "beta", "growth": .4, "group" : "a"},
+    {"value": 40, "name": "gamma", "growth": -.3, "group" : "b"},
+    {"value": 15, "name": "delta", "growth": -.65, "group" : "b"},
+    {"value": 5, "name": "epsilon", "growth": .7, "group" : "c"},
+    {"value": 1, "name": "zeta", "growth": .2, "group" : "c"}
+  ]
+ 
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(sample_data)
+    .type("tree_map")
+    .id(["group", "name"])
+    .size("value")
+    .color({
+      "range": [ "blue", "#e6e6e6" ],
+      "value": "growth"
+    })
+    .draw()
+ 
+</script>
